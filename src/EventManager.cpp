@@ -19,8 +19,11 @@ void EventManager::update(Application& application) {
                 this->isMouseDown = false;
             case sf::Event::MouseMoved:
                 if(this->isMouseDown) {
-                    application.theSquare->move(event.mouseMove.x, event.mouseMove.y);
+                    sf::Vector2f pos(application.theSquare->getPosition());
+                    application.theSquare->move(event.mouseMove.x - this->mousePosition.x, event.mouseMove.y - this->mousePosition.y);
                 }
+                this->mousePosition.x = event.mouseMove.x;
+                this->mousePosition.y = event.mouseMove.y;
         }
     }
 }

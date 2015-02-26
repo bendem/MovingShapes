@@ -14,6 +14,7 @@ public:
 
 private:
     bool isMouseDown;
+    sf::Vector2f mousePosition;
 
 };
 
