@@ -1,4 +1,5 @@
 #include "Renderer.hpp"
+#include "Application.hpp"
 
 Renderer::~Renderer() {
     for(sf::Drawable* shape : this->shapes) {

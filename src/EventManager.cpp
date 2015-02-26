@@ -1,4 +1,5 @@
 #include "EventManager.hpp"
+#include "Application.hpp"
 
 EventManager::EventManager()
         : isMouseDown(false) {

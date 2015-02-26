@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-#include "Application.hpp"
+class Application;
 
 class Renderer {
 

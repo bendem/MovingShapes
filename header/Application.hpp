@@ -3,8 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 
-class Application;
-
 #include "Renderer.hpp"
 #include "EventManager.hpp"
 
