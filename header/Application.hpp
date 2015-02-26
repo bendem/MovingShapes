@@ -1,6 +1,8 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
+#include <chrono>
+#include <thread>
 #include <SFML/Graphics.hpp>
 
 #include "Renderer.hpp"
@@ -14,6 +16,8 @@ public:
     void start();
 
 private:
+
+    static const sf::Time FPS;
 
     sf::RenderWindow window;
     Renderer renderer;

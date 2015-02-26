@@ -1,5 +1,7 @@
 #include "Application.hpp"
 
+const sf::Time Application::FPS = sf::seconds(1.f/60);
+
 Application::Application()
         : window(sf::VideoMode(900, 600), "Square!"){
 }
@@ -10,11 +12,15 @@ Application::~Application() {
 void Application::start() {
     this->setup();
 
+    sf::Clock clock;
     while(this->window.isOpen()) {
-        sf::Time start = sf::Time::Zero;
         this->eventManager.update(*this);
         this->renderer.render(*this);
-        // TODO Wait?
+
+        sf::Int64 remaining = (Application::FPS - clock.restart()).asMicroseconds();
+        if(remaining > 0) {
+            std::this_thread::sleep_for(std::chrono::microseconds(remaining));
+        }
     }
 }
 
