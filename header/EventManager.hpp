@@ -10,7 +10,7 @@ class EventManager {
 public:
     EventManager();
 
-    void update(Application& application);
+    void update(Application&);
 
 private:
     bool isMouseDown;

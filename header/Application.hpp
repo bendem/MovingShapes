@@ -17,8 +17,6 @@ public:
 
 private:
 
-    static const sf::Time FPS;
-
     sf::RenderWindow window;
     Renderer renderer;
     EventManager eventManager;
@@ -31,7 +29,5 @@ private:
     friend class EventManager;
 
 };
-
-const sf::Time FPS = sf::Time::seconds(1.f/60);
 
 #endif

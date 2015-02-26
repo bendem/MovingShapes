@@ -9,13 +9,13 @@
 class Renderer {
 
 public:
+    Renderer() {}
     ~Renderer();
     Renderer& registerShape(sf::Drawable*);
 
-    void render(Application& application1);
+    void render(Application&);
 
 private:
-    Application& application;
     std::vector<sf::Drawable*> shapes;
 
 };
