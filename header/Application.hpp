@@ -4,10 +4,13 @@
 #include <SFML/Graphics.hpp>
 
 #include <chrono>
+#include <iostream>
+#include <string>
 #include <thread>
 
 #include "Renderer.hpp"
 #include "EventManager.hpp"
+#include "utils/Random.hpp"
 
 class Application {
 
@@ -24,9 +27,14 @@ private:
     sf::RenderWindow window;
     Renderer renderer;
     EventManager eventManager;
+    Random random;
 
+    sf::Text* theScore;
+    sf::Text* theFrames;
     sf::RectangleShape* theSquare;
     sf::RectangleShape* theTarget;
+
+    unsigned long frameLived;
 
     void setup();
 

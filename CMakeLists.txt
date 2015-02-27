@@ -9,8 +9,10 @@ set(SOURCE_FILES
     header/Application.hpp
     header/EventManager.hpp
     header/Renderer.hpp
+    header/utils/Random.hpp
     src/Application.cpp
     src/EventManager.cpp
     src/Renderer.cpp
+    src/utils/Random.cpp
     main.cpp)
 add_executable(SimplestGame ${SOURCE_FILES})
