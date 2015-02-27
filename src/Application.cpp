@@ -5,6 +5,7 @@ const sf::Time Application::FPS = sf::seconds(1.f/60);
 Application::Application()
         : window(sf::VideoMode(900, 600), "Square!") {
     this->frameLived = 0;
+    this->score = 0;
 }
 
 Application::~Application() {
@@ -29,7 +30,9 @@ void Application::start() {
 
 void Application::setup() {
     std::cerr << "Application setup start" << std::endl;
-    static sf::Font f; // Keeps the font alive
+
+    static sf::Font f; // "static" keeps the font alive (needed since sf::Text doesn't)
+    // TODO You know, that's kinda not portable at all
     if(!f.loadFromFile("/usr/share/fonts/dejavu/DejaVuSansMono-Bold.ttf")) {
         throw std::runtime_error("Could not load font");
     }

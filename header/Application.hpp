@@ -35,6 +35,7 @@ private:
     sf::RectangleShape* theTarget;
 
     unsigned long frameLived;
+    unsigned long score;
 
     void setup();
 

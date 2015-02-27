@@ -73,5 +73,13 @@ void EventManager::update(Application& application) {
                 // NOP
                 break;
         }
+
+        if(application.theSquare->getPosition() == application.theTarget->getPosition()) {
+            application.theScore->setString(std::to_string(++application.score));
+            application.theTarget->setPosition(
+                application.random.nextUnsigned(application.window.getSize().x - application.theTarget->getSize().x),
+                application.random.nextUnsigned(application.window.getSize().y - application.theTarget->getSize().y)
+            );
+        }
     }
 }
