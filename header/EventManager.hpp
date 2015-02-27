@@ -3,6 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <set>
+
 class Application;
 
 class EventManager {
@@ -14,6 +16,7 @@ public:
 
 private:
     bool isMouseDown;
+    std::set<sf::Keyboard::Key> keysDown;
     sf::Vector2f mousePosition;
 
 };

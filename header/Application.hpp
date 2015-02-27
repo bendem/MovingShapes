@@ -1,9 +1,10 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
+#include <SFML/Graphics.hpp>
+
 #include <chrono>
 #include <thread>
-#include <SFML/Graphics.hpp>
 
 #include "Renderer.hpp"
 #include "EventManager.hpp"

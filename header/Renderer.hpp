@@ -2,6 +2,7 @@
 #define RENDERER_HPP
 
 #include <SFML/Graphics.hpp>
+
 #include <vector>
 
 class Application;
