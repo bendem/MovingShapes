@@ -14,6 +14,7 @@ class Application {
 public:
     Application();
     ~Application();
+
     void start();
 
 private:
@@ -25,6 +26,7 @@ private:
     EventManager eventManager;
 
     sf::RectangleShape* theSquare;
+    sf::RectangleShape* theTarget;
 
     void setup();
 

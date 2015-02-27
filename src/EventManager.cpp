@@ -22,16 +22,36 @@ void EventManager::update(Application& application) {
                 break;
 
             case sf::Event::MouseButtonPressed:
-                this->isMouseDown = true;
+                if(application.theSquare->getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
+                    this->isMouseDown = true;
+                }
                 break;
 
             case sf::Event::MouseButtonReleased:
+                if(this->isMouseDown) {
+                    // Prevents from dropping the square out of the window
+                    sf::Vector2f newPosition = application.theSquare->getPosition();
+                    if(newPosition.x < 0) {
+                        newPosition.x = 0;
+                    } else if(newPosition.x + application.theSquare->getSize().x > application.window.getSize().x) {
+                        newPosition.x = application.window.getSize().x - application.theSquare->getSize().x;
+                    }
+                    if(newPosition.y < 0) {
+                        newPosition.y = 0;
+                    } else if(newPosition.y + application.theSquare->getSize().y > application.window.getSize().y) {
+                        newPosition.y = application.window.getSize().y - application.theSquare->getSize().y;
+                    }
+                    application.theSquare->setPosition(newPosition);
+                }
                 this->isMouseDown = false;
                 break;
 
             case sf::Event::MouseMoved:
                 if(this->isMouseDown) {
-                    application.theSquare->move(event.mouseMove.x - this->mousePosition.x, event.mouseMove.y - this->mousePosition.y);
+                    application.theSquare->move(
+                        event.mouseMove.x - this->mousePosition.x,
+                        event.mouseMove.y - this->mousePosition.y
+                    );
                 }
                 this->mousePosition.x = event.mouseMove.x;
                 this->mousePosition.y = event.mouseMove.y;
