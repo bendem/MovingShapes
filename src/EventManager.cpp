@@ -78,8 +78,8 @@ void EventManager::update(Application& application) {
             return x1 > x2 - precision && x1 < x2 + precision;
         };
 
-        if(isAroud(application.theSquare->getPosition().x, application.theTarget->getPosition().x, 5)
-                && isAroud(application.theSquare->getPosition().y, application.theTarget->getPosition().y, 5)) {
+        if(isAroud(application.theSquare->getPosition().x, application.theTarget->getPosition().x, 3)
+                && isAroud(application.theSquare->getPosition().y, application.theTarget->getPosition().y, 3)) {
             application.theScore->setString(std::to_string(++application.score));
             application.theTarget->setPosition(
                 application.random.nextUnsigned(application.window.getSize().x - application.theTarget->getSize().x),
